@@ -15,7 +15,7 @@ It is designed with a complete CI/CD flow targeting a public Nuget package publi
 
 ### Prepare your environment
 
--   Download and install the latest .NET Core SDK - [.NET Core 3.1](https://github.com/dotnet/core/blob/master/release-notes/3.1/README.md)
+-   Download and install the latest .NET Core SDK - [.NET Core 3.1](https://github.com/dotnet/core/blob/main/release-notes/3.1/README.md)
 
 ### Build and test
 
@@ -41,7 +41,7 @@ $ dotnet test --collect:"XPlat Code Coverage" --settings ./build/coverlet.runset
 
 ### Publish package
 
-The package publication workflow is [Github Flow](https://githubflow.github.io/) based. That is, the master branch is always deployable.
+The package publication workflow is [Github Flow](https://githubflow.github.io/) based. That is, the main branch is always deployable.
 
 When you create a new Github release, a Github event is triggered at the repository level and caught be the Github Actions underlying system. Github actions checks if there is a workflow bound to that event and run it if it finds one.
 

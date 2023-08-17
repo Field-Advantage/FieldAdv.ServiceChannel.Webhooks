@@ -1,4 +1,4 @@
-# This workflow is triggered when a tag is pushed to master branch
+# This workflow is triggered when a tag is pushed to main branch
 # It will:
 # - Build the project and generate a nuget package
 # - Publish it to Github Packages and Nuget.org Packages repositories
@@ -8,7 +8,7 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 
 name: Release
 jobs:
@@ -17,18 +17,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.5.3
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3.2.0
         with:
-          dotnet-version: 3.1.302
+          dotnet-version: 7
       - name: Build project
         run: dotnet build -c Release
       - name: Generate package
         run: |
           dotnet pack --no-build --include-symbols -c Release -o .build/nuget -p:RepositoryBranch=${{github.ref}} -p:RepositoryCommit=${{github.sha}}
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: packages
           path: .build/nuget
@@ -41,12 +41,12 @@ jobs:
       NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3.2.0
         with:
-          dotnet-version: 3.1.302
-          source-url: https://nuget.pkg.github.com/PulsarBlow/index.json
+          dotnet-version: 7
+          source-url: https://nuget.pkg.github.com/Field-Advantage/index.json
       - name: Download Build Artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v2.1.1
         with:
           name: packages
           path: .
@@ -62,11 +62,11 @@ jobs:
       NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
     steps:
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3.2.0
         with:
-          dotnet-version: 3.1.302
+          dotnet-version: 7
       - name: Download Build Artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v2.1.1
         with:
           name: packages
           path: .
@@ -76,20 +76,17 @@ jobs:
 
   create-github-release:
     name: Create Github release
-    needs: [ publish-to-github, publish-to-nuget ]
+    needs: [publish-to-github, publish-to-nuget]
     runs-on: ubuntu-latest
     steps:
       - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automaticaly provided by Github workflow
+        uses: marvinpinto/action-automatic-releases@v1.2.1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: "latest"
+          title: "Release ${{ github.ref }}"
           draft: false
           # Prerelease if tag contains `-` character
           prerelease: ${{ contains(github.ref, '-') }}
+          files: |
+            *.nupkg
