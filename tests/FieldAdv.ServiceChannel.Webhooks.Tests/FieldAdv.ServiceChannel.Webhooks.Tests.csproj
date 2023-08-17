@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<Import Project="../../props/common.props" />
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+
+    <AssemblyName>FieldAdv.ServiceChannel.Webhooks.Tests</AssemblyName>
+
+    <RootNamespace>FieldAdv.ServiceChannel.Webhooks.Tests</RootNamespace>
+  </PropertyGroup>
+
+    <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="$(CoverletCollectorVersion)" />
+    <PackageReference Include="xunit" Version="$(XUnitVersion)" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="$(XUnitRunnerVersion)" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(TestSdkVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FieldAdv.ServiceChannel.Webhooks\FieldAdv.ServiceChannel.Webhooks.csproj" />
+  </ItemGroup>
+
+</Project>

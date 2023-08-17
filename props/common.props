@@ -1,0 +1,17 @@
+<Project>
+
+  <Import Project="dependencies.props" />
+  <Import Project="version.props" />
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>net7.0</TargetFramework>
+    <NoWarn>$(NoWarn)</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType Condition="'$(TargetFramework)' != '' AND '$(TargetFramework)' != 'net7.0'">Full</DebugType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

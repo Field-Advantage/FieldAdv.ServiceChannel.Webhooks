@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../props/common.props" />
+  <Import Project="../../props/package.props" />
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <AssemblyName>FieldAdv.ServiceChannel.Webhooks</AssemblyName>
+    <RootNamespace>FieldAdv.ServiceChannel.Webhooks</RootNamespace>
+    <Title>FieldAdv.ServiceChannel.Webhooks</Title>
+    <PackageId>FieldAdv.ServiceChannel.Webhooks</PackageId>
+    <PackageDescription>A lightweight .NET Core Class Library for interacting with [ServiceChannel's Webhooks](https://developer.servicechannel.com/guides/wh/event-objects/)</PackageDescription>
+    <PackageTags>Field-Advantage ServiceChannel Webhook Model class library</PackageTags>
+    <PackageReleaseNotes>v1.0-alpha: Initial version</PackageReleaseNotes>
+  </PropertyGroup>
+
+</Project>

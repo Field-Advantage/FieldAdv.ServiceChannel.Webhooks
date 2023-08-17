@@ -1,0 +1,22 @@
+<Project>
+
+  <PropertyGroup>
+    <Authors>Field Advantage LLC</Authors>
+    <Company>fieldadv.com</Company>
+    <Copyright>© 2023 Field Advantage LLC</Copyright>
+    <PackageLicenseFile>LICENCE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/Field-Advantage/FieldAdv.ServiceChannel.Webhooks/</PackageProjectUrl>
+    <PackageIcon>icon.webp</PackageIcon>
+    <RepositoryUrl>https://github.com/Field-Advantage/FieldAdv.ServiceChannel.Webhooks/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../assets/icon.webp" Pack="true" PackagePath="icon.webp"/>
+    <None Include="../../LICENCE" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+</Project>
