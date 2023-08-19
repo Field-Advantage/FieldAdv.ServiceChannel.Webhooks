@@ -37,8 +37,6 @@ jobs:
     name: Publish to Github
     needs: build
     runs-on: ubuntu-latest
-    env:
-      NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3.2.0
@@ -52,7 +50,7 @@ jobs:
           path: .
       - name: Publish package
         run: |
-          dotnet nuget push *.nupkg --skip-duplicate
+          dotnet nuget push *.nupkg --skip-duplicate -k ${{ secrets.GITHUB_TOKEN }}
 
   publish-to-nuget:
     name: Publish to NuGet
