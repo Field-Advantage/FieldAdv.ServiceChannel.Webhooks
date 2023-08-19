@@ -434,3 +434,4 @@ $RECYCLE.BIN/
 
 # Project specifics
 .build
+nohup.out
