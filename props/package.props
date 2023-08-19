@@ -6,7 +6,7 @@
     <Copyright>© 2023 Field Advantage LLC</Copyright>
     <PackageLicenseFile>LICENCE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/Field-Advantage/FieldAdv.ServiceChannel.Webhooks/</PackageProjectUrl>
-    <PackageIcon>icon.webp</PackageIcon>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/Field-Advantage/FieldAdv.ServiceChannel.Webhooks/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <IncludeSymbols>true</IncludeSymbols>
@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../../assets/icon.webp" Pack="true" PackagePath="icon.webp"/>
+    <None Include="../../assets/icon.png" Pack="true" PackagePath="icon.png"/>
     <None Include="../../LICENCE" Pack="true" PackagePath=""/>
   </ItemGroup>
 

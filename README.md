@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="FieldAdv ServiceChannel Webhook Model Library" src="assets/icon.webp" width="90" />
+  <img alt="FieldAdv ServiceChannel Webhook Model Library" src="assets/field-adv-header-logo.png" width="300" />
 </p>
 <h1 align="center">
   Field Advantage's ServiceChannel Webhook Model Library
